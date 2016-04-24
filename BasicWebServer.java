@@ -99,7 +99,7 @@ public class BasicWebServer {
 			for(File child : directoryListing) {
 				child.getName();
 				if (request[1].equals(child)) {
-					request[1] = child.getName();
+					request[1] = child.getName();	
 				}
 			} 
 

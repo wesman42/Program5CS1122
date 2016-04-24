@@ -8,6 +8,7 @@ public class Orders {
 		this.name = name;
 		this.item = item;
 		this.quantity = quantity;
+		
 	}
 
 	public boolean getStatus() {

@@ -9,5 +9,4 @@ public class InventoryItem {
 		stockQuantity = num;
 		costPerItem = cost;
 	}
-
 }
