@@ -9,8 +9,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class BasicWebServer {
-	
-	
+
+
 	private static String [ ] request = new String[3];
 	static String directory = "";
 	public void server( int port ) {
@@ -29,7 +29,7 @@ public class BasicWebServer {
 						) {
 
 					String inp = "";
-					
+
 
 					while ( ( inp = input.readLine( ) ) != null ) {
 						System.out.println( ">> " + inp );
@@ -41,10 +41,10 @@ public class BasicWebServer {
 							request = inp.split( " " );
 						}
 					}              
-					
+
 					handleGET();
-					
-				System.out.println(directory + request[1]);
+
+					System.out.println(directory + request[1]);
 					File fin = new File( directory + "/" + request[ 1 ] );
 					if ( !fin.exists( ) ) {
 						output.println("HTTP/1.0 404 Not Found");
@@ -86,37 +86,37 @@ public class BasicWebServer {
 			e.printStackTrace( );
 		}
 	}
-	
+
 	public void handleGET() {
 		File dir = new File(directory);
 		File[] directoryListing = dir.listFiles();
-		
+
 		if ( request[ 1 ].equals( "/" ) ) {
 			request[ 1 ] += "index";
 			request[ 1 ] = request[ 1 ].substring( 1 ) + ".html";
 		} else { 
-		
-		for(File child : directoryListing) {
-			child.getName();
-			if (request[1].equals(child)) {
-				request[1] = child.getName();
-			}
-		} 
-				
+
+			for(File child : directoryListing) {
+				child.getName();
+				if (request[1].equals(child)) {
+					request[1] = child.getName();
+				}
+			} 
+
 		}
-		
-				
-				
-		
-		
-		
+
+
+
+
+
+
 	}
 
 	public static void main( String [ ] args ) {
 		BasicWebServer self = new BasicWebServer( );
 		directory = args[ 1 ];
 		self.server( Integer.parseInt( args[ 0 ] ) );
-		
+
 	}
 
 }
