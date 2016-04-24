@@ -11,6 +11,7 @@ public void run(int port, String rootFolder) throws Exception {
 	
 	String message = BR.readLine();
 	System.out.println(message);
+	SVRSOCK.close();
 }
 	
 	public static void main(String[] args) throws Exception {
