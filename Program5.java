@@ -112,13 +112,13 @@ public class Program5 {
 					FormProcessor processData = new FormProcessor(child,request[1]);
 					request[1] = processData.getOutstanding().getName();
 					currentPage = processData.getOutstanding();
-					processData.checkFulfilmentStatus();
+					processData.checkFulfillmentStatus();
 					
 				} else if(request[1].contains("fulfilled_orders")&& child.getName().equals(request[1])) {
 					
 					FormProcessor processData = new FormProcessor(child,request[1]);
-					request[1] = processData.getFulfilmentList().getName();
-					currentPage = processData.getFulfilmentList();
+					request[1] = processData.getFulfillmentList().getName();
+					currentPage = processData.getFulfillmentList();
 					
 				}else if ( request[1].length() > 30 && (request[1].contains("new_order") || request[1].contains("add_stock") ) ) {
 					FormProcessor processData = new FormProcessor(child,request[1]);
@@ -144,13 +144,15 @@ public class Program5 {
 
 	}
 
-	public void getFulfillment(File file) {
+	public void getFulfillment(File file ) {
 
 	}
 
 	public static void main( String [ ] args ) {
-		Program5 self = new Program5( );
 		directory = args[ 1 ];
+		
+		Program5 self = new Program5( );
+		
 		self.server( Integer.parseInt( args[ 0 ] ) );
 
 	}

@@ -89,7 +89,7 @@ public class FormProcessor {
 		return new InventoryItem(name,quantity,costPer);	
 	}
 
-	public void getFulfilment() {
+	public void getFulfillment() {
 
 	}
 	public File getOutstanding()throws FileNotFoundException {
@@ -120,7 +120,7 @@ public class FormProcessor {
 		update.close();
 		return updatedHTML;
 	}
-	public File getFulfilmentList() throws FileNotFoundException {
+	public File getFulfillmentList() throws FileNotFoundException {
 		File updatedHTML = new File(file.getName());
 		PrintWriter update = new PrintWriter(updatedHTML);
 		Scanner read = new Scanner(file);
@@ -129,7 +129,7 @@ public class FormProcessor {
 			if (read.hasNext("<p>")) {
 				update.println("<p>");
 				if (Program5.fulfilledOrders.isEmpty()) {
-					update.println("<i><font color=\"red\"> There are currently NO fulfilled orders available. </font></i>");
+					update.println("<i><font color=\"red\"> There are currently NO fulfilled orders available. </font><font color=\"black\"></i>");
 				} else {
 					for(int i = 0; i < Program5.fulfilledOrders.size(); i++) {
 						if (!Program5.fulfilledOrders.isEmpty()) {
@@ -155,7 +155,7 @@ public class FormProcessor {
 		return updatedHTML;
 	}
 	
-	public void checkFulfilmentStatus() {
+	public void checkFulfillmentStatus() {
 		Orders[] orders = Program5.outstandingOrders.toArray( new Orders[Program5.outstandingOrders.size()]);
 		InventoryItem[] inventory = Program5.inventoryList.toArray(new InventoryItem[Program5.inventoryList.size()]);
 		for (int i = 0; i < orders.length; i++) {
